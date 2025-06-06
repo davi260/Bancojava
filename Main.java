@@ -6,18 +6,21 @@ public class Main {
         Banco minhaConta = new Banco();
 
         System.out.println("Digite seu nome: ");
-        minhaConta.nome = input.nextLine();
+        String nome = input.nextLine();
+        minhaConta.setNome(nome);
 
         System.out.println("Digite seu cpf: ");
-        minhaConta.cpf = input.nextLine();
+        String cpf= input.nextLine();
+        minhaConta.setCpf(cpf);
 
         System.out.println("Digite sua conta: ");
-        minhaConta.numeroConta = input.nextInt();
+        int numero= input.nextInt();
+        minhaConta.setNumeroConta(numero);
+        float saldo = 1000.002f;
+        minhaConta.setSaldo(saldo);
 
-        minhaConta.saldo = 1000.002f;
 
-
-        int operacao = 0;
+        int operacao =0;
         while(true){
             System.out.println("""
             *********************************
@@ -33,7 +36,7 @@ public class Main {
             operacao = input.nextInt();
             switch (operacao) {
                 case 1:
-                    minhaConta.mostrarExtrato();
+                    minhaConta.getExtrato();
                     break;
                 case 2:
                     System.out.print("Valor para depósito: ");
