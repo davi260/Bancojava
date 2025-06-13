@@ -1,25 +1,21 @@
 import java.util.ArrayList;
 public class Banco {
-    private String nome;
-    private String cpf;
-    private Float saldo;
-    private int numeroConta;
-    private ArrayList<Float> extrato = new ArrayList<>();
 
+    protected double saldo;
+    protected int numeroConta;
+    protected ArrayList<Float> extrato = new ArrayList<>();
+
+
+    public Banco(int numeroConta) {
+        this.numeroConta = numeroConta;
+        this.saldo = 0.0;
+    }
     void getExtrato() {
         System.out.println("=== EXTRATO ===");
         for (Float operacao : extrato) {
             System.out.printf("R$ %.2f\n", operacao);
         }
         System.out.printf("Saldo atual: R$ %.2f\n", saldo);
-    }
-
-    void setNome(String n) {
-        this.nome = n;
-    }
-
-    void setCpf(String n) {
-        this.cpf = n;
     }
 
     void setSaldo(Float s) {
@@ -45,6 +41,13 @@ public class Banco {
     void saque(float valorSaque){
         saldo -= valorSaque;
         extrato.add(-valorSaque);
+    }
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public int getNumeroConta() {
+        return numeroConta;
     }
 }
 
